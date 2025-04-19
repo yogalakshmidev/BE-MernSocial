@@ -1,5 +1,5 @@
 import { User } from "../models/userModel.js";
-import TryCatch from "../utils/tryCatch.js";
+import TryCatch from "../utils/Trycatch.js";
 import getDataUrl from "../utils/urlGenerator.js";
 import { v2 as cloudinary } from "cloudinary";
 import bcrypt from "bcrypt";

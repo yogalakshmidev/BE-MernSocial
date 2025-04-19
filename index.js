@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 import {Chat} from './models/ChatModel.js';
 import {User} from "./models/userModel.js"
 import {isAuth} from './middlewares/isAuth.js'
-// import cors from "cors";
+import cors from "cors";
 
 
 // importing routes
@@ -33,7 +33,7 @@ const app = express();
 app.use(express.json());
 // app.use(cors);
 app.use(cookieParser());
-
+app.use(cors({ origin: process.env.CLIENT_URL , credentials: true }));
 // to get all users
 app.get("/api/user/all",isAuth,async (req,res) => {
 try {

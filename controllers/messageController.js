@@ -1,4 +1,4 @@
-import TryCatch from "../utils/TryCatch.js"
+import TryCatch from "../utils/Trycatch.js"
 import {Chat} from "../models/ChatModel.js"
 import {Messages} from "../models/Messages.js"
 
