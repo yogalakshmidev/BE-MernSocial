@@ -2,7 +2,7 @@ import { User } from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
 import getDataUrl from "../utils/urlGenerator.js";
 import bcrypt from "bcrypt";
-import TryCatch from "../utils/tryCatch.js";
+import TryCatch from "../utils/Trycatch.js";
 import { v2 as cloudinary } from "cloudinary";
 
 export const registerUser = TryCatch(async (req, res) => {
