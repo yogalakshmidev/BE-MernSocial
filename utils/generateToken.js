@@ -5,11 +5,19 @@ const generateToken = (id, res) => {
     expiresIn: "15d",
   });
 
+  
   res.cookie("token", token, {
-    maxAge: 15 * 24 * 60 * 60 * 1000,
     httpOnly: true,
-    sameSite: "strict",
+    secure: true, // set to true in production
+    sameSite: "None", // if using cross-origin
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   });
+
+  // res.cookie("token", token, {
+  //   maxAge: 15 * 24 * 60 * 60 * 1000,
+  //   httpOnly: true,
+  //   sameSite: "strict",
+  // });
 };
 
 export default generateToken;
