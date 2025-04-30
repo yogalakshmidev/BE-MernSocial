@@ -1,5 +1,6 @@
 import { User } from "../models/userModel.js";
 // import generateToken from "../utils/generateToken.js";
+import jwt from 'jsonwebtoken'
 import getDataUrl from "../utils/urlGenerator.js";
 import bcrypt from "bcrypt";
 import TryCatch from "../utils/Trycatch.js";
