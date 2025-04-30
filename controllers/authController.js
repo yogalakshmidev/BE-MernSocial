@@ -1,6 +1,5 @@
 import { User } from "../models/userModel.js";
-// import generateToken from "../utils/generateToken.js";
-import {jwt} from 'jsonwebtoken'
+import generateToken from "../utils/generateToken.js";
 import getDataUrl from "../utils/urlGenerator.js";
 import bcrypt from "bcrypt";
 import TryCatch from "../utils/Trycatch.js";
@@ -42,14 +41,7 @@ export const registerUser = TryCatch(async (req, res) => {
     },
   });
 
-// create token
-const token = jwt.sign({userId: user._id},process.env.JWT_SECRET,{expiresIn: '3h'});
-
-// set the token in the header
-res.cookie('token',token,{httpOnly: true,sameSite:'strict',secure:true,maxAge:3*60*60*1000,path:'/'});
-
-
-  // generateToken(user._id, res);
+  generateToken(user._id, res);
 
   res.status(201).json({
     message: "User Registration Successfully",
@@ -76,15 +68,7 @@ export const loginUser = TryCatch(async (req, res) => {
       success: false,
     });
 
-
-    
-// create token
-const token = jwt.sign({userId: user._id},process.env.JWT_SECRET,{expiresIn: '3h'});
-
-// set the token in the header
-res.cookie('token',token,{httpOnly: true,sameSite:'strict',secure:true,maxAge:3*60*60*1000,path:'/'});
-
-  // generateToken(user._id, res);
+  generateToken(user._id, res);
   
   res.json({
     message: "User Logged in successfully",

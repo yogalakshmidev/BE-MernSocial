@@ -1,4 +1,4 @@
-import {jwt} from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import { User } from '../models/userModel.js';
 
 export const isAuth = async(req,res,next)=>{
@@ -14,11 +14,7 @@ export const isAuth = async(req,res,next)=>{
       return res.status(400).json({
     message:"Token Expired", success:false
     })
-
-  req.userId = decodedData.userId;
-  console.log("request user id from isAuth",req.userId);
 req.user = await User.findById(decodedData.id);
-console.log("request  user id by findby method from isAuth",req.userId);
 
 next();
   } catch (error) {
